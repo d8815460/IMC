@@ -17,6 +17,8 @@
 		47C902BD2419DE83001645FC /* IMCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C902BC2419DE83001645FC /* IMCUITests.swift */; };
 		47C902CE2419FD32001645FC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C902CD2419FD32001645FC /* ViewModel.swift */; };
 		47C902D22419FD85001645FC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C902D12419FD85001645FC /* Model.swift */; };
+		47C902D5241A019B001645FC /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C902D4241A019B001645FC /* GithubAPI.swift */; };
+		47C902D8241A0312001645FC /* IMCConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C902D7241A0312001645FC /* IMCConstants.swift */; };
 		A3AC3ADDEEF750E6DC1BC02C /* Pods_IMC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A736F4FA387A80147B19A1C /* Pods_IMC.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		47C902BE2419DE83001645FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47C902CD2419FD32001645FC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		47C902D12419FD85001645FC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		47C902D4241A019B001645FC /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		47C902D7241A0312001645FC /* IMCConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMCConstants.swift; sourceTree = "<group>"; };
 		608736F8E0F26E66B4D8F348 /* Pods-IMC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMC.debug.xcconfig"; path = "Target Support Files/Pods-IMC/Pods-IMC.debug.xcconfig"; sourceTree = "<group>"; };
 		BC17ADDEEAA38D9814BAFADF /* Pods-IMC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMC.release.xcconfig"; path = "Target Support Files/Pods-IMC/Pods-IMC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +131,8 @@
 		47C902992419DE81001645FC /* IMC */ = {
 			isa = PBXGroup;
 			children = (
+				47C902D6241A02CA001645FC /* Extensions */,
+				47C902D3241A016D001645FC /* Services */,
 				47C902CA2419FCC9001645FC /* Model */,
 				47C902CB2419FCD5001645FC /* View */,
 				47C902CC2419FCEB001645FC /* View Model */,
@@ -196,6 +202,22 @@
 				47C9029C2419DE81001645FC /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47C902D3241A016D001645FC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				47C902D4241A019B001645FC /* GithubAPI.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		47C902D6241A02CA001645FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				47C902D7241A0312001645FC /* IMCConstants.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +396,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				47C902D22419FD85001645FC /* Model.swift in Sources */,
+				47C902D5241A019B001645FC /* GithubAPI.swift in Sources */,
+				47C902D8241A0312001645FC /* IMCConstants.swift in Sources */,
 				47C9029F2419DE81001645FC /* ViewController.swift in Sources */,
 				47C9029B2419DE81001645FC /* AppDelegate.swift in Sources */,
 				47C902CE2419FD32001645FC /* ViewModel.swift in Sources */,
