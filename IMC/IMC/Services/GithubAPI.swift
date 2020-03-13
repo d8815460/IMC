@@ -40,22 +40,21 @@ class GithubAPI {
     
     
     // MARK: API Calls
-    func getUsers(handler: @escaping (_ success: Bool, _ response: AnyObject?) -> Void) {
+    func getUsers(handler: @escaping (_ success: Bool, _ response: [UserDataModel]?) -> Void) {
         
         self.alamoFireManager.request(baseUrl+getUsersPath, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200..<600).validate(contentType: ["application/json"]).responseJSON { (response) in
             
             let success = self.validateResponseSuccess(response)
             
             if (success) {
-                let data = response.result.value
-                handler(true, data as AnyObject?)
-            } else {
-                if let error = response.result.error
-                {
-                    handler(false, error as AnyObject)
-                } else {
-                    handler(false, "something error" as AnyObject)
+                do {
+                    let users = try JSONDecoder().decode([UserDataModel].self, from: response.data!)
+                    handler(true, users)
+                } catch {
+                    handler(false, nil)
                 }
+            } else {
+                handler(false, nil)
             }
         }
     }
