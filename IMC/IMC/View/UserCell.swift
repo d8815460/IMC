@@ -22,6 +22,7 @@ class UserCell: UITableViewCell {
         userImage.layer.masksToBounds = true
         
         staff.layer.cornerRadius = 20.5/2
+        staff.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
