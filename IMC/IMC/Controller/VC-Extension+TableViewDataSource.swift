@@ -55,7 +55,7 @@ extension ViewController: UITableViewDataSource {
         // #6 - Update the UI with info from the Messier object
         // Configure the cell...
         cell.name.text = usersViewModel[indexPath.row].login
-        cell.staff.isHidden = usersViewModel[indexPath.row].siteAdmin
+        cell.staff.isHidden = !usersViewModel[indexPath.row].siteAdmin
         
         // #7 - Start image downloading in background.
         usersViewModel[indexPath.row].download(completionHanlder: imageCompletionClosure)

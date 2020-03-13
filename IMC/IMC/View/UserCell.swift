@@ -20,6 +20,8 @@ class UserCell: UITableViewCell {
         // Initialization code
         userImage.layer.cornerRadius = 30
         userImage.layer.masksToBounds = true
+        
+        staff.layer.cornerRadius = 20.5/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
