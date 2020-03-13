@@ -13,8 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loadData()
     }
 
-
+    func loadData() {
+        GithubAPI.sharedInstance.getUsers { (successed, response) in
+            print("response")
+        }
+    }
 }
 

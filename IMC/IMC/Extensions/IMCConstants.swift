@@ -9,4 +9,4 @@
 import UIKit
 
 let baseUrl = "https://api.github.com/"
-let getUsersPath = "/users"
+let getUsersPath = "users"
