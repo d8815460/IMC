@@ -13,10 +13,13 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var staff: UILabel!
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        userImage.layer.cornerRadius = 30
+        userImage.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

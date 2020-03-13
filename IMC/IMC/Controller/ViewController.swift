@@ -27,6 +27,8 @@ class ViewController: UIViewController {
             for user in users ?? [UserDataModel]() {
                 self.usersViewModel.append(UserViewModel(userDataModel: user))
             }
+            self.tableView.reloadData()
+            self.tableView.setNeedsDisplay()
         }
     }
 }

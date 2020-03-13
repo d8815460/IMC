@@ -27,6 +27,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Zbh-KS-zhX">
+                                                    <rect key="frame" x="40" y="30" width="20" height="20"/>
+                                                </activityIndicatorView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PL6-Yc-Dnr">
                                                     <rect key="frame" x="20" y="10" width="60" height="60"/>
                                                     <constraints>
@@ -55,11 +58,14 @@
                                             <constraints>
                                                 <constraint firstItem="PL6-Yc-Dnr" firstAttribute="centerY" secondItem="Reh-U8-nb2" secondAttribute="centerY" id="9jI-WI-ZNG"/>
                                                 <constraint firstItem="MZ9-Lb-SFD" firstAttribute="centerY" secondItem="Reh-U8-nb2" secondAttribute="centerY" id="Jyv-JW-OiP"/>
+                                                <constraint firstItem="Zbh-KS-zhX" firstAttribute="centerX" secondItem="PL6-Yc-Dnr" secondAttribute="centerX" id="Yg1-TN-59d"/>
                                                 <constraint firstItem="PL6-Yc-Dnr" firstAttribute="leading" secondItem="Reh-U8-nb2" secondAttribute="leading" constant="20" id="cbW-6q-H7H"/>
+                                                <constraint firstItem="Zbh-KS-zhX" firstAttribute="centerY" secondItem="PL6-Yc-Dnr" secondAttribute="centerY" id="vcK-nH-lSG"/>
                                                 <constraint firstItem="MZ9-Lb-SFD" firstAttribute="leading" secondItem="PL6-Yc-Dnr" secondAttribute="trailing" constant="8" id="xQa-7J-N20"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activitySpinner" destination="Zbh-KS-zhX" id="toU-LB-am6"/>
                                             <outlet property="name" destination="4xd-AD-hRG" id="4hJ-Rb-A1u"/>
                                             <outlet property="staff" destination="nCp-py-bTj" id="cge-EN-L3x"/>
                                             <outlet property="userImage" destination="PL6-Yc-Dnr" id="a3W-d3-cFF"/>
@@ -77,6 +83,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="GGj-Ur-8kn" id="zrt-o5-tgj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

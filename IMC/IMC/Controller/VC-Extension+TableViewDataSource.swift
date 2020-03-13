@@ -11,7 +11,6 @@ import UIKit
 extension ViewController: UITableViewDataSource {
     
     
-
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -26,57 +25,46 @@ extension ViewController: UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
 
+        cell.userImage.alpha = 0.0
+        // #1 - Define a closure (completion block) INSTANCE for updating a UIImageView
+        // once an image downloads.
+        let imageCompletionClosure = { (imageData: NSData) -> Void in
+            // #2 - Download occurs on background thread, but UI update
+            // MUST occur on the main thread.
+            DispatchQueue.main.async {
+                
+                // #3 - Animate the appearance of the Messier image.
+                UIView.animate(withDuration: 1.0, animations: {
+                    cell.userImage.alpha = 1.0
+                    cell.userImage?.image = UIImage(data: imageData as Data)
+                    self.view.setNeedsDisplay()
+                })
+                
+                // #4 - Stop and hide the activity spinner as the
+                // image has finished downloading
+                cell.activitySpinner.stopAnimating()
+                
+            } // end DispatchQueue.main.async
+        }
+        // #5 - Start and show the activity spinner as the
+        // image is about to start downloading in background.
+        cell.activitySpinner.startAnimating()
+        
+        // #6 - Update the UI with info from the Messier object
         // Configure the cell...
-
+        cell.name.text = usersViewModel[indexPath.row].login
+        cell.staff.isHidden = usersViewModel[indexPath.row].siteAdmin
+        
+        // #7 - Start image downloading in background.
+        usersViewModel[indexPath.row].download(completionHanlder: imageCompletionClosure)
+        
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
